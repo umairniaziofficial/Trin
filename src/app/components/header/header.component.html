@@ -1,31 +1,69 @@
-<nav class="bg-white text-black font-sans h-[122.85px] flex items-center gap-[224.644px] px-8 border-b">
-  <div class="flex-shrink-0">
-    <h1 class="text-2xl font-bold">TRIN</h1>
-  </div>
-
-  <div class="w-[60%] mx-4">
-    <div class="relative">
-      <input 
-        type="text" 
-        placeholder="Search the product here" 
-        class="w-full h-12 px-4  px-[17.55px] border border-gray-300 outline-none"
-      />
-      <span class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer">
-        <img src="searchIcon.svg" class="h-auto w-auto" alt="Search Icon">
-      </span>
+<nav class="bg-white text-black flex items-center justify-between px-6 md:px-12 border-b relative h-[15vh]">
+  <!-- Hamburger Icon (Mobile Only) -->
+  <div class=" md:hidden flex items-center">
+    <button
+      (click)="toggleMenu()"
+      class="text-2xl focus:outline-none mr-4"
+      aria-label="Toggle Menu"
+    >
+      ☰
+    </button>
+    <!-- Logo Section (Mobile) -->
+    <div class="flex-shrink-0">
+      <a routerLink="/" class="text-4xl md:text-5xl font-bold tracking-widest">TRIN</a>
     </div>
   </div>
 
-  <!-- Right: Icons -->
-  <div class="flex items-center space-x-6">
-    <div class="h-8 w-8 flex items-center justify-center">
-      <img src="shoppingBag.svg" class="w-auto h-auto" alt="shoppingBag Icon">
+  <!-- Logo Section (Desktop) -->
+  <div class="flex-shrink-0 md:block hidden">
+    <a routerLink="/" class="text-4xl md:text-5xl font-bold tracking-widest">TRIN</a>
+  </div>
+
+  <!-- Search Bar Section (Hidden on Mobile) -->
+  <div class="hidden md:block w-full md:w-1/2 lg:w-2/5 mx-4 relative">
+    <input
+      type="text"
+      placeholder="Search the product here"
+      class="w-full h-10 py-2 px-4 border border-gray-300 outline-none rounded-md text-sm font-light"
+    />
+    <span class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer">
+      <img src="assets/icons/searchIcon.svg" class="h-auto w-auto" alt="Search Icon">
+    </span>
+  </div>
+
+  <!-- Icons Section (Right-aligned) -->
+  <div class="flex items-center space-x-4 md:space-x-5">
+    <img src="assets/icons/shoppingBag.svg" class="w-6 h-6 md:w-7 md:h-7 cursor-pointer" alt="Shopping Bag Icon">
+    <img src="assets/icons/accountIcon.svg" class="w-6 h-6 md:w-7 md:h-7 cursor-pointer" alt="Account Icon">
+    <img src="assets/icons/cartIcon.svg" class="w-6 h-6 md:w-7 md:h-7 cursor-pointer" alt="Cart Icon">
+  </div>
+
+  <!-- Mobile Menu (Dropdown) -->
+  <div
+    *ngIf="menuOpen"
+    class="absolute top-full left-0 w-full bg-white shadow-lg z-10 md:hidden"
+  >
+    <!-- Mobile Search Bar -->
+    <div class="px-6 py-4 border-b">
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Search the product here"
+          class="w-full h-10 py-2 px-4 border border-gray-300 outline-none rounded-md text-sm font-light"
+        />
+        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer">
+          <img src="assets/icons/searchIcon.svg" class="h-auto w-auto" alt="Search Icon">
+        </span>
+      </div>
     </div>
-    <div class="h-8 w-8 flex items-center justify-center">
-      <img src="accountIcon.svg" class="w-auto h-auto" alt="Account Icon">
-    </div>
-    <div class="h-8 w-8 flex items-center justify-center">
-      <img src="cartIcon.svg" class="w-auto h-auto" alt="Cart Icon">
-    </div>
+    <!-- Mobile Menu Items -->
+    <ul class="flex flex-col space-y-2 py-4 px-6">
+      <li><a routerLink="/" class="text-black hover:underline hover:font-bold">Home</a></li>
+      <li><a routerLink="trending"  class="text-black hover:underline hover:font-bold">Trending</a></li>
+      <li><a routerLink="running_shoes" class="text-black hover:underline hover:font-bold">Running Shoes</a></li>
+      <li><a routerLink="basketball_shoes"  class="text-black hover:underline hover:font-bold">Basketball Shoes</a></li>
+      <li><a routerLink="casual_sneaker"  class="text-black hover:underline hover:font-bold">Casual Sneaker</a></li>
+      <li><a routerLink="winter"  class="text-black hover:underline hover:font-bold">Winter</a></li>
+    </ul>
   </div>
 </nav>

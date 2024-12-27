@@ -1,0 +1,21 @@
+<div class="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
+  <video
+    #videoElement
+    class="absolute inset-0 w-full h-full object-cover"
+    playsinline
+    autoplay
+    muted
+    loop
+    preload="auto"
+    poster="assets/images/fallback-poster.jpg"
+    (error)="onVideoError($event)"
+  >
+    <source src="assets/videos/BannerVideo.mp4" type="video/mp4" />
+    <!-- Fallback content -->
+    <img
+      src="assets/images/fallback-poster.jpg"
+      alt="Banner"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  </video>
+</div>
