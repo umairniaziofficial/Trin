@@ -1,20 +1,50 @@
-<div *ngFor="let banner of bannerItems" class="h-[470px] w-screen flex"
-  [style.background-color]="banner.bannerBackgroundColor">
-  <div class="w-1/2 px-[6.25rem] flex items-center justify-center" [class.order-2]="banner.imageSide === 'left'">
-    <div class="flex gap-[1.88rem] flex-col">
-     <div class="flex flex-col gap-2" [style.color]="banner.textColor">
-        <h1 class="text-4xl font-bold uppercase" >{{ banner.headingText }}</h1>
-        <p class="text-xs font-thin pl-1">{{ banner.description }}</p>
-     </div>
-      <div>
-        <button class="px-[3.75rem] py-3 hover:opacity-70 transition-opacity duration-150 ease-in-out uppercase text-sm font-bold" [style.background-color]="banner.buttonBackground"
-          [style.color]="banner.buttonTextColor">
-          {{ banner.buttonText }}
-        </button>
+<div class="relative h-[450px] md:h-[470px] overflow-hidden cursor-grab active:cursor-grabbing">
+  <!-- Slideshow Content -->
+  <div *ngFor="let banner of bannerItems; let i = index"
+    class="h-full w-screen flex flex-col md:flex-row absolute transition-opacity duration-1000 select-none"
+    [ngClass]="{'opacity-100': i === activeIndex, 'opacity-0': i !== activeIndex}"
+    [style.background-color]="banner.bannerBackgroundColor">
+
+    <!-- Image Section (Top on mobile, Left/Right on desktop) -->
+    <div class="w-full h-[50%] md:w-1/2 md:h-full order-1"
+         [class.md:order-1]="banner.imageSide === 'left'"
+         [class.md:order-2]="banner.imageSide !== 'left'">
+      <img [src]="banner.imageSrc"
+           alt="Banner Image"
+           class="w-full h-full md:object-contain" />
+    </div>
+
+    <!-- Content Section (Bottom on mobile, Left/Right on desktop) -->
+    <div class="w-full h-[50%] md:w-1/2 md:h-full px-6 md:px-[6.25rem] flex items-start md:items-center justify-center order-2 pt-8 md:pt-0"
+         [class.md:order-2]="banner.imageSide === 'left'"
+         [class.md:order-1]="banner.imageSide !== 'left'">
+      <div class="flex gap-4 md:gap-[1.88rem] flex-col">
+        <div class="flex flex-col gap-2 text-center md:text-left"
+             [style.color]="banner.textColor">
+          <h1 class="text-2xl md:text-4xl font-bold uppercase">{{ banner.headingText }}</h1>
+          <p class="text-xs font-thin">{{ banner.description }}</p>
+        </div>
+        <div class="flex justify-center md:justify-start">
+          <button class="px-6 md:px-[3.75rem] py-2 md:py-3 hover:opacity-70 transition-opacity duration-150 ease-in-out uppercase text-sm font-bold"
+                  [style.background-color]="banner.buttonBackground"
+                  [style.color]="banner.buttonTextColor">
+            {{ banner.buttonText }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="w-1/2" [class.order-1]="banner.imageSide === 'left'">
-    <img [src]="banner.imageSrc" alt="Banner Image" />
-  </div>
+
+  <!-- Pagination dots -->
+  <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 flex gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-full bg-black/20">
+    <div *ngFor="let banner of bannerItems; let i = index"
+         class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full cursor-pointer transition-all duration-300 hover:scale-125"
+         [ngClass]="{
+           'bg-white': true,
+           'opacity-100 scale-125': i === activeIndex,
+           'opacity-30 hover:opacity-50': i !== activeIndex
+         }"
+         (click)="setActiveSlide(i)">
+    </div>
+</div>
 </div>

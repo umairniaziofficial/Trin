@@ -1,0 +1,48 @@
+import { BannerModel } from '../models/banner.type';
+
+export const BANNER_ITEMS: BannerModel[] = [
+  {
+    imageSrc: 'assets/images/banner/Image1.png',
+    headingText: 'Classy Sneakers Wear',
+    description: 'Step Up Your Style with Classy Sneakers Wear – Where Comfort Meets Elegance!',
+    buttonText: 'Shop Now',
+    textColor: "#000",
+    buttonBackground: '#000000',
+    buttonTextColor: '#fff',
+    bannerBackgroundColor: '#f0e9dc',
+    imageSide: 'right',
+  },
+  {
+    imageSrc: 'assets/images/banner/Image2.png',
+    headingText: 'Sports Shoes',
+    description: 'Push your limits with ultimate comfort and durability in every stride',
+    buttonText: 'Shop Now',
+    textColor: "#fff",
+    buttonBackground: '#d9d9d9',
+    buttonTextColor: '#000',
+    bannerBackgroundColor: '#0a0a0a',
+    imageSide: 'left',
+  },
+  {
+    imageSrc: 'assets/images/banner/Image3.png',
+    headingText: 'Modern Shoes',
+    description: 'Experience redefined style and unmatched comfort with every step you take',
+    textColor: "#000",
+    buttonText: 'Shop Now',
+    buttonBackground: '#000',
+    buttonTextColor: '#fff',
+    bannerBackgroundColor: '#f2eae3',
+    imageSide: 'left',
+  },
+  {
+    imageSrc: 'assets/images/banner/Image4.png',
+    headingText: 'Jogger Shoes',
+    description: 'Stay on track with lightweight shoes designed for your active lifestyle',
+    textColor: "#000",
+    buttonText: 'Shop Now',
+    buttonBackground: '#000',
+    buttonTextColor: '#fff',
+    bannerBackgroundColor: '#ececec',
+    imageSide: 'right',
+  },
+];

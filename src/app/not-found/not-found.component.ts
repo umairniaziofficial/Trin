@@ -7,7 +7,7 @@ import { Title, Meta } from '@angular/platform-browser';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './not-found.component.html',
-  styles: [':host { display: block; }'] // Styles are handled in the template.
+  styles: [':host { display: block; }']
 })
 export class NotFoundComponent {
   constructor(
