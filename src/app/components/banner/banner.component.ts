@@ -1,43 +1,45 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
-  standalone: true,
+  imports: [NgFor],
   templateUrl: './banner.component.html',
-  styles: [`
-    :host {
-      display: block;
-      width: 100%;
-    }
-  `]
+  styleUrls: ['./banner.component.scss'],
 })
-export class BannerComponent implements AfterViewInit {
-  @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
-
-  constructor(private renderer: Renderer2) {}
-
-  ngAfterViewInit() {
-    const video = this.videoElement.nativeElement;
-    video.muted = true;
-
-    this.ensureVideoPlays(video);
-
-    this.renderer.listen(video, 'pause', () => {
-      console.warn('Video paused unexpectedly. Attempting to resume playback...');
-      this.ensureVideoPlays(video);
-    });
-  }
-
-  private ensureVideoPlays(video: HTMLVideoElement) {
-    if (video.paused || video.readyState < 4) {
-      video.play().catch(err => console.error('Error ensuring autoplay:', err));
+export class BannerComponent {
+  bannerItems = [
+    {
+      imageSrc: 'assets/images/banner/Image1.png',
+      headingText: 'Classy Sneakers Wear',
+      description: 'Step Up Your Style with Classy Sneakers Wear – Where Comfort Meets Elegance!',
+      buttonText: 'Shop Now',
+      buttonBackground: '#000000',
+      buttonTextColor: '#fff',
+      bannerBackgroundColor: '#fceae1',
+      imageSide: 'right',
+    },
+    {
+      imageSrc: 'assets/images/banner/Image2.png',
+      headingText: 'Sports Shoes',
+      description: 'Push your limits with ultimate comfort and durability in every stride',
+      buttonText: 'Shop Now',
+      textColor: "#fff",
+      buttonBackground: '#d9d9d9',
+      buttonTextColor: '#000',
+      bannerBackgroundColor: '#0a0a0a',
+      imageSide: 'left',
+    },
+    {
+      imageSrc: 'assets/images/banner/Image3.png',
+      headingText: 'Modern Shoes',
+      description: 'Experience redefined style and unmatched comfort with every step you take',
+      buttonText: 'Shop Now',
+      textColor: "#000",
+      buttonBackground: '#000',
+      buttonTextColor: '#fff',
+      bannerBackgroundColor: '#f2eae3',
+      imageSide: 'right',
     }
-  }
-
-  onVideoError(event: Event) {
-    console.error('Video loading error:', event);
-
-    const video = this.videoElement.nativeElement;
-    video.style.display = 'none';
-  }
+  ];
 }

@@ -1,0 +1,20 @@
+<div class="relative w-screen">
+  <video
+    #videoElement
+    class="absolute inset-0 w-full h-full object-cover"
+    playsinline
+    autoplay
+    muted
+    loop
+    preload="auto"
+    poster="assets/images/fallback-poster.jpg"
+    (error)="onVideoError($event)"
+  >
+    <source src="assets/videos/BannerVideo.mp4" type="video/mp4" />
+    <img
+      src="assets/images/fallback-poster.jpg"
+      alt="Banner"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  </video>
+</div>

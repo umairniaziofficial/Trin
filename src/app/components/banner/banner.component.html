@@ -1,21 +1,20 @@
-<div class="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
-  <video
-    #videoElement
-    class="absolute inset-0 w-full h-full object-cover"
-    playsinline
-    autoplay
-    muted
-    loop
-    preload="auto"
-    poster="assets/images/fallback-poster.jpg"
-    (error)="onVideoError($event)"
-  >
-    <source src="assets/videos/BannerVideo.mp4" type="video/mp4" />
-    <!-- Fallback content -->
-    <img
-      src="assets/images/fallback-poster.jpg"
-      alt="Banner"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-  </video>
+<div *ngFor="let banner of bannerItems" class="h-[470px] w-screen flex"
+  [style.background-color]="banner.bannerBackgroundColor">
+  <div class="w-1/2 px-[6.25rem] flex items-center justify-center" [class.order-2]="banner.imageSide === 'left'">
+    <div class="flex gap-[1.88rem] flex-col">
+     <div class="flex flex-col gap-2" [style.color]="banner.textColor">
+        <h1 class="text-4xl font-bold uppercase" >{{ banner.headingText }}</h1>
+        <p class="text-xs font-thin pl-1">{{ banner.description }}</p>
+     </div>
+      <div>
+        <button class="px-[3.75rem] py-3 hover:opacity-70 transition-opacity duration-150 ease-in-out uppercase text-sm font-bold" [style.background-color]="banner.buttonBackground"
+          [style.color]="banner.buttonTextColor">
+          {{ banner.buttonText }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="w-1/2" [class.order-1]="banner.imageSide === 'left'">
+    <img [src]="banner.imageSrc" alt="Banner Image" />
+  </div>
 </div>

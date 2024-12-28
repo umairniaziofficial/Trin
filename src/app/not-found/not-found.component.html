@@ -1,4 +1,32 @@
-<div class="w-full h-[60vh] flex flex-col gap-8 justify-center items-center">
-  <h1 class="text-5xl font-serif font-extrabold tracking-wide">404 - Page Not Found</h1>
-  <p class="text-sm font-serif font-extralight">Sorry, the page you're looking for does not exist.</p>
-</div>
+<main role="main" class="w-full min-h-[60vh] flex items-center justify-center px-4 py-8">
+  <div class="w-full max-w-2xl mx-auto text-center">
+    <!-- Error Status -->
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-wide mb-4 sm:mb-6"
+      aria-label="Error 404">
+      404
+    </h1>
+
+    <!-- Error Title -->
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-extrabold tracking-wide mb-3 sm:mb-4" aria-level="2">
+      Page Not Found
+    </h2>
+
+    <!-- Error Description -->
+    <p class="text-sm sm:text-base lg:text-lg font-serif font-light mb-6 sm:mb-8" role="status">
+      Sorry, the page you're looking for does not exist.
+    </p>
+
+    <!-- Back to Home Button -->
+    <a routerLink="/" class="inline-block px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800
+             transition-colors duration-200 font-medium text-sm sm:text-base" role="button"
+      aria-label="Return to homepage">
+      Return to Homepage
+    </a>
+
+    <!-- Additional help text for screen readers -->
+    <span class="sr-only">
+      You can use the return to homepage button above or press the back button in your browser to navigate away from
+      this error page
+    </span>
+  </div>
+</main>
