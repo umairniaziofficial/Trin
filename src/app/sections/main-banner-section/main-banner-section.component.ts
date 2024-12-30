@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { NgClass, NgFor } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 import { BannerModel } from '../../models/banner.type';
 import { BANNER_ITEMS } from '../../constants/data';
-import { NgClass, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss'],
-  imports: [NgFor, NgClass]
+  selector: 'app-main-banner-section',
+  imports: [NgFor, NgClass],
+  templateUrl: './main-banner-section.component.html',
+  styleUrl: './main-banner-section.component.scss'
 })
-export class BannerComponent implements OnInit, OnDestroy {
+export class MainBannerSectionComponent {
   bannerItems: BannerModel[] = BANNER_ITEMS;
   activeIndex: number = 0;
   interval: any;

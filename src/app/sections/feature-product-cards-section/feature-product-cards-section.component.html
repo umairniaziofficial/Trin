@@ -1,0 +1,16 @@
+<div class="customSpace w-full">
+  <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6">
+    <app-long-card-component
+      class="w-full md:w-1/2"
+      *ngFor="let item of CARD_ITEMS"
+      [title]="item.title"
+      [description]="item.description"
+      [buttonBackground]="item.buttonBackground"
+      [buttonTextColor]="item.buttonTextColor"
+      [buttonText]="item.buttonText"
+      [imgSrc]="item.imgSrc"
+      [cardTextColor]="item.cardTextColor"
+      [link]="item.link"
+    />
+  </div>
+</div>

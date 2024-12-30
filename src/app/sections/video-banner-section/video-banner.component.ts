@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
 
 @Component({
-  selector: 'app-banner',
+  selector: 'app-video-banner',
   standalone: true,
   templateUrl: './video-banner.component.html',
   styles: [`
@@ -18,6 +18,7 @@ export class VideoBannerComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const video = this.videoElement.nativeElement;
+    console.log(video);
     video.muted = true;
 
     this.ensureVideoPlays(video);
@@ -27,6 +28,7 @@ export class VideoBannerComponent implements AfterViewInit {
       this.ensureVideoPlays(video);
     });
   }
+
 
   private ensureVideoPlays(video: HTMLVideoElement) {
     if (video.paused || video.readyState < 4) {

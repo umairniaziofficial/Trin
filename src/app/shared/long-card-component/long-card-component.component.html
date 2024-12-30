@@ -1,0 +1,26 @@
+<div class="flex items-center justify-center w-full h-full py-2 sm:py-3 md:py-4 ">
+  <!-- Card Container -->
+  <div class="relative w-full bg-black bg-opacity-50 rounded-lg overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[300px] hover:grayscale hover:brightness-90">
+    <!-- Background Image -->
+    <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center "
+         [style.background-image]="'url(' + (imgSrc || 'assets/images/fallback-poster.jpg') + ')'">
+    </div>
+
+    <!-- Card Content -->
+    <div class="relative p-4 sm:p-5 md:p-6 flex flex-col justify-between h-full w-full" [style.color]="cardTextColor">
+      <!-- Text Content -->
+      <div>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-shadow-md drop-shadow-lg">{{title}}</h2>
+        <p class="text-sm mb-3 md:mb-4 line-clamp-3 sm:line-clamp-none text-shadow-md w-2/3 drop-shadow-lg">{{description}}</p>
+      </div>
+
+      <!-- Button -->
+      <div class="flex justify-start mt-auto uppercase">
+        <a [href]="link" class="px-3 py-2 text-xs font-normal tracking-wider sm:px-4 sm:py-2 hover:opacity-30 transition-opacity duration-300 rounded-full"
+           [style.background-color]="buttonBackground" [style.color]="buttonTextColor">
+          {{buttonText}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

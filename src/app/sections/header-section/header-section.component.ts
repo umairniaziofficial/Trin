@@ -6,8 +6,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-header',
   standalone: true,
   imports: [NgIf, RouterLink],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './header-section.component.html',
+  styleUrls: ['./header-section.component.scss']
 })
 export class HeaderComponent {
   menuOpen: boolean = false;

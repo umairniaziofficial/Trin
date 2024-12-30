@@ -6,3 +6,9 @@
 body {
   @apply font-montserrat;
 }
+
+@layer utilities {
+  .customSpace {
+    @apply px-4 sm:px-6 md:px-12;
+  }
+}

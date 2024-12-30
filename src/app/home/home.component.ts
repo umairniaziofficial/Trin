@@ -1,12 +1,32 @@
 import { Component } from '@angular/core';
-import { BannerComponent } from "../components/banner/banner.component";
+import {
+  MainBannerSectionComponent,
+  FeatureProductCardsSectionComponent,
+  FeaturedProductsSectionComponent,
+  LatestProductsSectionComponent,
+  TrendingSectionComponent,
+  VideoBannerComponent,
+  CategoriesSectionComponent,
+  TestimonialComponent,
+  FeatureBannerSectionComponent,
+  TrustBadgesSectionComponent
+} from '../sections';
 
 @Component({
   selector: 'app-home',
-  imports: [BannerComponent],
+  imports: [
+    MainBannerSectionComponent,
+    FeatureProductCardsSectionComponent,
+    FeaturedProductsSectionComponent,
+    LatestProductsSectionComponent,
+    TrendingSectionComponent,
+    VideoBannerComponent,
+    CategoriesSectionComponent,
+    TestimonialComponent,
+    FeatureBannerSectionComponent,
+    TrustBadgesSectionComponent
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-
-}
+export class HomeComponent { }

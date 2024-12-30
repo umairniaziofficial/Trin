@@ -1,0 +1,8 @@
+<div class="px-4 sm:px-6 md:px-12 pt-12">
+  <h1 class="text-3xl font-bold text-red-500">Browse by Category</h1>
+  <div *ngFor="let item of Categories,let i =index">
+    <h1>{{item.categoryName}}</h1>
+    <h2>{{item.categoryDescription}}</h2>
+    <h2>{{item.categoryImageSrc}}</h2>
+  </div>
+</div>
