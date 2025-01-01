@@ -1,7 +1,7 @@
 import { NgClass, NgFor } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import { BannerModel } from '../../models/banner.type';
 import { BANNER_ITEMS } from '../../constants/data';
+import { BannerModel } from '../../models/index.type';
 
 @Component({
   selector: 'app-main-banner-section',

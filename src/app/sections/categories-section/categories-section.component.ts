@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { CATEGORY_ITEM } from '../../constants/data';
-import { CategoryModel } from '../../models/category.type';
+import { CategoryModel } from '../../models/index.type';
 
 @Component({
   selector: 'app-categories-section',

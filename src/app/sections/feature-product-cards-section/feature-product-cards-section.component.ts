@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { LongCardComponentComponent } from '../../shared/long-card-component/long-card-component.component';
-import { Product_Card_Model } from '../../models/product_card.type';
 import { PRODUCT_CARD_ITEM } from '../../constants/data';
 import { NgFor } from '@angular/common';
+import { Product_Card_Model } from '../../models/index.type';
 
 @Component({
   selector: 'app-feature-product-cards-section',

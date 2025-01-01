@@ -1,3 +1,14 @@
-<div class="px-4 sm:px-6 md:px-12 w-full flex py-6">
-  <h1 class="text-red-500">Top Picks</h1>
+<div class="px-4 sm:px-6 md:px-12 w-full flex flex-col gap-8 py-6">
+  <h1 class="font-semibold text-xl">Top Picks</h1>
+  <div class="grid grid-flow-col grid-cols-3 gap-12">
+    <div class="flex gap-2 flex-col" *ngFor="let item of Products">
+     <a href={{item.ShoeLink}} class="flex gap-4 flex-col">
+        <div><img src={{item.imgUrl}} alt="Shoe Image" /></div>
+        <div>
+          <h2>{{item.ShoeName}}</h2>
+          <p class="text-xs text-gray-500">${{item.ShoePrice}}</p>
+        </div>
+     </a>
+    </div>
+  </div>
 </div>

@@ -1,1 +1,31 @@
-<p>trending-section works!</p>
+<div class="h-full flex flex-col py-12 gap-4 customSpace">
+  <h1 class="font-semibold text-xl">Trending Now</h1>
+  <!-- First Row (Single Item) -->
+  <div class="relative flex-1">
+    <img src={{Trending_Items[0].imageUrl}} class="w-full h-full object-cover" alt="">
+    <div class="absolute left-4 top-4  bg-opacity-50 drop-shadow-md p-4 rounded text-white max-w-sm sm:max-w-md">
+      <h3 class="text-lg md:text-xl font-bold">{{Trending_Items[0].title}}</h3>
+      <p class="text-xs md:text-sm">{{Trending_Items[0].description}}</p>
+    </div>
+  </div>
+
+  <!-- Second Row (Two Items) -->
+  <div class="flex flex-col md:flex-row flex-1 gap-4">
+    <!-- Second Item -->
+    <div class="relative flex-1">
+      <img src={{Trending_Items[1].imageUrl}} class="w-full h-full object-cover" alt="">
+      <div class="absolute left-4 top-4  bg-opacity-50 text-white p-4 rounded max-w-xs sm:max-w-sm">
+        <h3 class="text-lg md:text-xl font-bold">{{Trending_Items[1].title}}</h3>
+        <p class="text-sm">{{Trending_Items[1].description}}</p>
+      </div>
+    </div>
+    <!-- Third Item -->
+    <div class="relative flex-1">
+      <img src={{Trending_Items[2].imageUrl}} class="w-full h-full object-cover" alt="">
+      <div class="absolute left-4 top-4  bg-opacity-50 text-white p-4 rounded max-w-xs sm:max-w-sm">
+        <h3 class="text-lg md:text-xl font-bold">{{Trending_Items[2].title}}</h3>
+        <p class="text-sm">{{Trending_Items[2].description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
