@@ -41,3 +41,16 @@ export type BannerModel = {
   bannerBackgroundColor: string;
   imageSide: 'left' | 'right';
 }
+
+
+export type TestimonialModel = {
+  imageSrc: string;
+  name: string;
+  description: string;
+  rating: number;
+}
+
+
+export type TrustBadgeModel = {
+  imageSrc: string;
+}

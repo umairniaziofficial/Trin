@@ -1,11 +1,20 @@
-<div class="w-full">
-  <h1 class="text-center "><span class="border-b-2 pb-4 border-b-green-500">Latest Products</span></h1>
-  <div class="grid grid-flow-col grid-cols-6" *ngFor="let item of Latest_Items">
-    <div class="flex flex-col gap-4">
-      <img src={{item.imgUrl}} alt="">
-      <div class="flex flex-col justify-center items-center">
-       <h2 class="text-base">{{item.ShoeName}}</h2>
-       <p class="text-sm">${{item.ShoePrice}}</p>
+<div class="w-full mt-8 md:mt-12">
+  <h1 class="text-center">
+    <span class="border-b-2 pb-4 border-b-green-500 font-semibold text-xl ">Latest Products</span>
+  </h1>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-[0.82rem] border-t pt-4">
+    <div *ngFor="let item of Latest_Items; let i = index"
+         class="flex flex-col p-2"
+         [ngClass]="{
+           'border-r': i < 5 && i !== 1 && i !== 3,
+           'sm:border-r': i < 5 && i !== 2,
+           'md:border-r': i < 5 && i !== 3,
+           'lg:border-r': i < 5
+         }">
+      <img [src]="item.imgUrl" alt="{{item.ShoeName}}" class="w-full object-cover">
+      <div class="flex flex-col justify-center items-center mt-2">
+        <h2 class="text-base text-center">{{item.ShoeName}}</h2>
+        <p class="text-sm text-gray-400">${{item.ShoePrice}}</p>
       </div>
     </div>
   </div>

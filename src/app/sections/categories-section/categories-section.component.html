@@ -1,8 +1,25 @@
-<div class="px-4 sm:px-6 md:px-12 pt-12">
-  <h1 class="text-3xl font-bold text-red-500">Browse by Category</h1>
-  <div *ngFor="let item of Categories,let i =index">
-    <h1>{{item.categoryName}}</h1>
-    <h2>{{item.categoryDescription}}</h2>
-    <h2>{{item.categoryImageSrc}}</h2>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8 md:mt-12">
+  <div class="flex flex-col lg:flex-row gap-8">
+    <div class="lg:w-1/4">
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 relative pb-4 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-16 before:h-1 before:bg-gray-900">
+        <div class="text-gray-600 text-sm font-medium uppercase tracking-wider">Search by</div>
+        <div class="uppercase mt-1">Category</div>
+      </h1>
+    </div>
+
+    <div class="lg:w-3/4 flex flex-wrap gap-6 sm:gap-8">
+      <div *ngFor="let item of Categories" class="flex flex-col items-center group cursor-pointer w-[calc(50%-12px)] sm:w-[calc(33.333%-21.333px)] lg:w-[calc(16.666%-26.666px)]">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-gray-200 hover:border-gray-400 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 relative">
+          <img [src]="item.categoryImageSrc" [alt]="item.categoryName" class="w-full h-full object-cover rounded-full transform hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full flex items-center justify-center">
+            <span class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">View All</span>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <p class="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-gray-900 transition-colors duration-300 tracking-wide uppercase">{{item.categoryName}}</p>
+          <div class="h-0.5 w-0 group-hover:w-full bg-gray-800 mt-1 mx-auto transition-all duration-300"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

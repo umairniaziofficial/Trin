@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Product_Model } from '../../models/index.type';
 import { Latest_Product } from '../../constants/data';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-latest-products-section',
-  imports: [NgFor],
+  imports: [NgFor,NgClass],
   templateUrl: './latest-products-section.component.html',
   styleUrl: './latest-products-section.component.scss'
 })

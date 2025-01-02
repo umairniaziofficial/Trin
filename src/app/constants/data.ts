@@ -3,7 +3,9 @@ import {
   CategoryModel,
   Product_Card_Model,
   Product_Model,
+  TestimonialModel,
   Trending_Model,
+  TrustBadgeModel,
 } from '../models/index.type';
 
 export const BANNER_ITEMS: BannerModel[] = [
@@ -59,10 +61,36 @@ export const BANNER_ITEMS: BannerModel[] = [
 
 export const CATEGORY_ITEM: CategoryModel[] = [
   {
-    categoryName: 'Sneakers',
-    categoryDescription: 'Discover the latest sneakers styles and trends',
-    categoryImageSrc: 'assets/images/categories/Sneakers.png',
+    categoryName: 'Winter Shoes',
+    categoryDescription: '',
+    categoryImageSrc: 'assets/images/categories/winter_shoe.jpg',
   },
+  {
+    categoryName: 'Sports Shoes',
+    categoryDescription: '',
+    categoryImageSrc: 'assets/images/categories/sports_shoe.jpg',
+  },
+  {
+    categoryName: 'Basketball Shoes',
+    categoryDescription: '',
+    categoryImageSrc: 'assets/images/categories/basketball_shoe.jpg',
+  },
+  {
+    categoryName: 'Running Shoes',
+    categoryDescription: '',
+    categoryImageSrc: 'assets/images/categories/running_shoe.jpg',
+  },
+  {
+    categoryName: 'Sneaker Shoes',
+    categoryDescription: '',
+    categoryImageSrc: 'assets/images/categories/sneaker_shoe.jpg',
+  },
+  {
+    categoryName:'Training Shoes',
+    categoryDescription:'',
+    categoryImageSrc:'assets/images/categories/training_shoe.jpg'
+  }
+
 ];
 
 export const PRODUCT_CARD_ITEM: Product_Card_Model[] = [
@@ -135,43 +163,92 @@ export const Trending: Trending_Model[] = [
   },
 ];
 
+export const Latest_Product: Product_Model[] = [
+  {
+    imgUrl: 'assets/images/latest_products/1.png',
+    ShoeName: 'Latest Product 1',
+    ShoePrice: '99.99',
+    ShoeLink: '',
+  },
+  {
+    imgUrl: 'assets/images/latest_products/2.png',
+    ShoeName: 'Latest Product 1',
+    ShoePrice: '99.99',
+    ShoeLink: '',
+  },
+  {
+    imgUrl: 'assets/images/latest_products/3.png',
+    ShoeName: 'Latest Product 1',
+    ShoePrice: '99.99',
+    ShoeLink: '',
+  },
+  {
+    imgUrl: 'assets/images/latest_products/4.png',
+    ShoeName: 'Latest Product 1',
+    ShoePrice: '99.99',
+    ShoeLink: '',
+  },
+  {
+    imgUrl: 'assets/images/latest_products/5.png',
+    ShoeName: 'Latest Product 1',
+    ShoePrice: '99.99',
+    ShoeLink: '',
+  },
+  {
+    imgUrl: 'assets/images/latest_products/6.png',
+    ShoeName: 'Latest Product 1',
+    ShoePrice: '99.99',
+    ShoeLink: '',
+  },
+];
 
-export const Latest_Product : Product_Model[] = [
+export const Testimonial: TestimonialModel[] = [
   {
-  imgUrl: 'assets/images/latest_products/1.jpg',
-  ShoeName: 'Latest Product 1',
-  ShoePrice: '99.99',
-  ShoeLink: '',
-},
+    imageSrc: 'https://randomuser.me/api/portraits/men/1.jpg',
+    name: 'Michael Chen',
+    description:
+      "TRIN shoes have completely transformed my running experience. The comfort and support are unmatched, and I've seen a significant improvement in my performance. Best athletic shoes I've ever owned!",
+    rating: 5,
+  },
   {
-  imgUrl: 'assets/images/latest_products/2.jpg',
-  ShoeName: 'Latest Product 1',
-  ShoePrice: '99.99',
-  ShoeLink: '',
-},
+    imageSrc: 'https://randomuser.me/api/portraits/women/1.jpg',
+    name: 'Sarah Martinez',
+    description:
+      "As someone who spends long hours standing at work, finding comfortable shoes was crucial. TRIN's professional collection offers both style and comfort. My feet don't hurt anymore after a long shift!",
+    rating: 5,
+  },
   {
-  imgUrl: 'assets/images/latest_products/3.jpg',
-  ShoeName: 'Latest Product 1',
-  ShoePrice: '99.99',
-  ShoeLink: '',
-},
-  {
-  imgUrl: 'assets/images/latest_products/4.jpg',
-  ShoeName: 'Latest Product 1',
-  ShoePrice: '99.99',
-  ShoeLink: '',
-},
-  {
-  imgUrl: 'assets/images/latest_products/5.jpg',
-  ShoeName: 'Latest Product 1',
-  ShoePrice: '99.99',
-  ShoeLink: '',
-},
-  {
-  imgUrl: 'assets/images/latest_products/6.jpg',
-  ShoeName: 'Latest Product 1',
-  ShoePrice: '99.99',
-  ShoeLink: '',
-},
+    imageSrc: 'https://randomuser.me/api/portraits/men/2.jpg',
+    name: 'James Wilson',
+    description:
+      "The quality of TRIN shoes is exceptional. I've had my pair for over a year now, and they still look and feel as good as new. The customer service is also outstanding. Highly recommend!",
+    rating: 4,
+  },
+];
 
-]
+export const Trust_Badges: TrustBadgeModel[] = [
+  {
+    imageSrc: 'assets/images/brands/adidas_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/nike_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/puma_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/reebok_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/new_balance_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/asics_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/vans_logo.png',
+  },
+  {
+    imageSrc: 'assets/images/brands/fila_logo.png',
+  },
+];
