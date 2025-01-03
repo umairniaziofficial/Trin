@@ -226,29 +226,3 @@ export const Testimonial: TestimonialModel[] = [
   },
 ];
 
-export const Trust_Badges: TrustBadgeModel[] = [
-  {
-    imageSrc: 'assets/images/brands/adidas_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/nike_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/puma_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/reebok_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/new_balance_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/asics_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/vans_logo.png',
-  },
-  {
-    imageSrc: 'assets/images/brands/fila_logo.png',
-  },
-];

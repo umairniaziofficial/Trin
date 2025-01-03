@@ -7,6 +7,5 @@ export * from './video-banner-section/video-banner.component';
 export * from './categories-section/categories-section.component';
 export * from './testimonial-section/testimonial.component';
 export * from './feature-banner-section/feature-banner-section.component';
-export * from './trust-badges-section/trust-badges-section.component';
 export * from "./footer-section/footer.component";
 export * from './header-section/header-section.component';

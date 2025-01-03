@@ -1,32 +1,63 @@
-<main role="main" class="w-full min-h-[60vh] flex items-center justify-center px-4 py-8">
-  <div class="w-full max-w-2xl mx-auto text-center">
+<main role="main" class="w-full h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-4xl mx-auto text-center">
+    <!-- Error Image -->
+    <div class="relative w-full max-w-[300px] mx-auto">
+      <img
+        src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif"
+        alt="404 error animation"
+        class="w-full h-auto mx-auto mb-6"
+        aria-hidden="true"
+      />
+    </div>
+
     <!-- Error Status -->
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-wide mb-4 sm:mb-6"
-      aria-label="Error 404">
+    <h1
+      class="text-6xl md:text-7xl xl:text-8xl font-sans font-black tracking-tighter mb-3 md:mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent"
+      aria-label="Error 404"
+    >
       404
     </h1>
 
     <!-- Error Title -->
-    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-extrabold tracking-wide mb-3 sm:mb-4" aria-level="2">
-      Page Not Found
+    <h2
+      class="text-2xl md:text-3xl xl:text-4xl font-sans font-bold tracking-tight mb-3 md:mb-4 text-gray-800"
+      aria-level="2"
+    >
+      Oops! Page Not Found
     </h2>
 
     <!-- Error Description -->
-    <p class="text-sm sm:text-base lg:text-lg font-serif font-light mb-6 sm:mb-8" role="status">
-      Sorry, the page you're looking for does not exist.
+    <p
+      class="text-base md:text-lg xl:text-xl font-sans text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto"
+      role="status"
+    >
+      The page you're looking for seems to have vanished into the digital void.
     </p>
 
     <!-- Back to Home Button -->
-    <a routerLink="/" class="inline-block px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800
-             transition-colors duration-200 font-medium text-sm sm:text-base" role="button"
-      aria-label="Return to homepage">
-      Return to Homepage
-    </a>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        routerLink="/"
+        class="w-full sm:w-auto px-6 py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px]"
+        role="button"
+        aria-label="Return to homepage"
+      >
+        Return to Homepage
+      </a>
+      <button
+        onclick="history.back()"
+        class="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-800 rounded-xl hover:bg-gray-200 transition-all duration-300 font-medium text-base shadow-md hover:shadow-lg hover:translate-y-[-2px] active:translate-y-[0px]"
+        role="button"
+        aria-label="Go back to previous page"
+      >
+        Go Back
+      </button>
+    </div>
 
     <!-- Additional help text for screen readers -->
     <span class="sr-only">
-      You can use the return to homepage button above or press the back button in your browser to navigate away from
-      this error page
+      You can use the return to homepage button, go back button, or press the
+      back button in your browser to navigate away from this error page
     </span>
   </div>
 </main>

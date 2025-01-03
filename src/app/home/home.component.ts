@@ -9,7 +9,6 @@ import {
   CategoriesSectionComponent,
   TestimonialComponent,
   FeatureBannerSectionComponent,
-  TrustBadgesSectionComponent
 } from '../sections';
 
 @Component({
@@ -24,7 +23,6 @@ import {
     CategoriesSectionComponent,
     TestimonialComponent,
     FeatureBannerSectionComponent,
-    TrustBadgesSectionComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
