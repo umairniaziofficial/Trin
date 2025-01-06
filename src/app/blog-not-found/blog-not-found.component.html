@@ -1,0 +1,41 @@
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center px-4 py-12 container">
+  <div class="max-w-xl w-full text-center">
+    <!-- Animated GIF -->
+    <div class="mb-8">
+      <img src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" alt="404 Animation"
+        class="mx-auto h-64 object-contain">
+    </div>
+
+    <!-- Text Content with Gradient -->
+    <h1
+      class="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-black via-gray-700 to-black bg-clip-text text-transparent">
+      Oops! Post Not Found
+    </h1>
+    <p class="text-lg text-gray-600 mb-8 font-light">
+      We searched high and low, but couldn't find the blog post you're looking for. Let's get you back on track.
+    </p>
+
+    <!-- Stylized Action Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a routerLink="/"
+        class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-transparent hover:border-black hover:text-black transition-all duration-300">
+        Visit Homepage
+      </a>
+      <a routerLink="/blog"
+        class="group inline-flex items-center justify-center px-8 py-4 border-2 border-black text-base font-semibold rounded-full text-white bg-black hover:bg-white hover:text-black transition-all duration-300">
+        Back to Blog
+        <svg class="ml-2 w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="mt-12 flex justify-center space-x-4">
+      <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+      <div class="w-2 h-2 rounded-full bg-gray-500"></div>
+      <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+    </div>
+  </div>
+</div>

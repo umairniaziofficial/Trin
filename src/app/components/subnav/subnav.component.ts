@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { NAV_LINKS } from '../../constants/data';
 
 @Component({
   selector: 'app-subnav',
@@ -9,12 +10,5 @@ import { NgFor } from '@angular/common';
   templateUrl: './subnav.component.html'
 })
 export class SubnavComponent {
-  navLinks = [
-    { path: '/new', label: 'New' },
-    { path: '/trending', label: 'Trending' },
-    { path: '/running-shoe', label: 'Running Shoes' },
-    { path: '/basketball-shoe', label: 'Basketball Shoes' },
-    { path: '/casual-sneaker', label: 'Casual Sneaker' },
-    { path: '/winter', label: 'Winter' }
-  ];
+  navLinks = NAV_LINKS;
 }

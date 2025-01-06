@@ -9,6 +9,11 @@ import { ForgotComponent } from './auth/forgot/forgot.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HeaderLayoutComponent } from './layouts/header-layout/header-layout.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { SuccessPageComponent } from './success-page/success-page.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogLayoutComponent } from './layouts/blog-layout/blog-layout.component';
+import { BlogNotFoundComponent } from './blog-not-found/blog-not-found.component';
 
 export const routes: Routes = [
   {
@@ -17,11 +22,12 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'home', redirectTo: '', pathMatch: 'full' },
-      { path: 'contact', component: ContactUsComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+      { path: 'cart', component: ShoppingCartComponent },
     ],
   },
   {
-    path: '',
+    path: 'auth',
     component: AuthLayoutComponent,
     children: [
       { path: 'signup', component: SignupComponent },
@@ -30,11 +36,27 @@ export const routes: Routes = [
     ],
   },
   {
-    path:'',
-    component: HeaderLayoutComponent,
-    children:[
-      { path: 'checkout', component: CheckoutComponent },
-    ]
+    path: 'blog',
+    component: BlogLayoutComponent,
+    children: [
+      { path: '', component: BlogComponent },
+      { path: 'not-found', component: BlogNotFoundComponent },
+      { path: '**', redirectTo: 'not-found' }
+    ],
   },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: 'checkout',
+    component: HeaderLayoutComponent,
+    children: [
+      { path: '', component: CheckoutComponent }
+    ],
+  },
+  {
+    path: 'success',
+    component: SuccessPageComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
 ];

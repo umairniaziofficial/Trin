@@ -226,3 +226,13 @@ export const Testimonial: TestimonialModel[] = [
   },
 ];
 
+export const NAV_LINKS: { path: string; label: string }[] = [
+  { path: '/new', label: 'New' },
+  { path: '/trending', label: 'Trending' },
+  { path: '/running-shoe', label: 'Running Shoes' },
+  { path: '/basketball-shoe', label: 'Basketball Shoes' },
+  { path: '/casual-sneaker', label: 'Casual Sneaker' },
+  { path: '/winter', label: 'Winter' },
+  { path: '/blog', label: 'Blog' },
+  { path: '/contact-us', label: 'Contact Us' }
+];

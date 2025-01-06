@@ -1,11 +1,7 @@
 <nav class="bg-white text-black flex items-center justify-between px-4 sm:px-6 md:px-12 border-b relative py-4">
   <!-- Hamburger Icon and Mobile Logo -->
   <div class="md:hidden flex items-center gap-4">
-    <button
-      (click)="toggleMenu()"
-      class="text-2xl focus:outline-none"
-      aria-label="Toggle Menu"
-    >
+    <button (click)="toggleMenu()" class="text-2xl focus:outline-none" aria-label="Toggle Menu">
       ☰
     </button>
     <!-- Logo Section (Mobile) -->
@@ -21,11 +17,8 @@
 
   <!-- Search Bar Section (Desktop) -->
   <div class="hidden md:block w-full max-w-xl mx-4 relative">
-    <input
-      type="text"
-      placeholder="Search the product here"
-      class="w-full h-10 py-2 px-4 border border-gray-300 outline-none rounded-md text-sm font-light"
-    />
+    <input type="text" placeholder="Search the product here"
+      class="w-full h-10 py-2 px-4 border border-gray-300 outline-none rounded-md text-sm font-light" />
     <span class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer">
       <img src="assets/icons/searchIcon.svg" class="w-5 h-5" alt="Search Icon">
     </span>
@@ -33,86 +26,102 @@
 
   <!-- Icons Section -->
   <div class="flex items-center gap-4 md:gap-5">
-   <a routerLink="/signin"> <img src="assets/icons/accountIcon.svg" class="w-5 h-5 cursor-pointer hover:scale-110 transition-transform" alt="Account Icon"></a>
-   <button (click)="toggleCart()" class="relative hover:scale-110 transition-transform">
-     <img src="assets/icons/cartIcon.svg" class="w-5 h-5 cursor-pointer" alt="Cart Icon">
-     <span *ngIf="cartItemCount > 0" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">{{cartItemCount}}</span>
-   </button>
+    <a routerLink="/signin"> <img src="assets/icons/accountIcon.svg"
+        class="w-5 h-5 cursor-pointer hover:scale-110 transition-transform" alt="Account Icon"></a>
+    <button (click)="toggleCart()" class="relative hover:scale-110 transition-transform">
+      <img src="assets/icons/cartIcon.svg" class="w-5 h-5 cursor-pointer" alt="Cart Icon">
+      <span *ngIf="cartItemCount > 0"
+        class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">{{cartItemCount}}</span>
+    </button>
 
-   <!-- Cart Sidebar -->
-   <div *ngIf="isCartOpen" class="fixed inset-y-0 right-0 w-[85%] sm:w-[70%] md:w-[400px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out" [ngClass]="{'translate-x-0': isCartOpen, 'translate-x-full': !isCartOpen}">
-     <div class="h-full flex flex-col bg-gray-50">
-       <!-- Cart Header -->
-       <div class="p-6 border-b bg-white flex justify-between items-center shadow-sm">
-         <h2 class="text-2xl font-bold">Your Cart</h2>
-         <button (click)="toggleCart()" class="text-gray-500 hover:text-black hover:rotate-90 transition-all duration-300">
-           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-           </svg>
-         </button>
-       </div>
+    <!-- Cart Sidebar -->
+    <div *ngIf="isCartOpen"
+      class="fixed inset-y-0 right-0 w-[85%] sm:w-[70%] md:w-[400px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out"
+      [ngClass]="{'translate-x-0': isCartOpen, 'translate-x-full': !isCartOpen}">
+      <div class="h-full flex flex-col bg-gray-50">
+        <!-- Cart Header -->
+        <div class="p-6 border-b bg-white flex justify-between items-center shadow-sm">
+          <h2 class="text-2xl font-bold">Your Cart</h2>
+          <button (click)="toggleCart()"
+            class="text-gray-500 hover:text-black hover:rotate-90 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
-       <!-- Cart Items -->
-       <div class="flex-1 overflow-y-auto p-6">
-         <div *ngIf="cartItems.length === 0" class="flex flex-col items-center justify-center h-full text-gray-500">
-           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-           </svg>
-           <p class="text-lg font-medium">Your cart is empty</p>
-           <p class="text-sm mt-2">Add some products to start shopping</p>
-         </div>
+        <!-- Cart Items -->
+        <div class="flex-1 overflow-y-auto p-6">
+          <div *ngIf="cartItems.length === 0" class="flex flex-col items-center justify-center h-full text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <p class="text-lg font-medium">Your cart is empty</p>
+            <p class="text-sm mt-2">Add some products to start shopping</p>
+          </div>
 
-         <div *ngFor="let item of cartItems" class="bg-white rounded-xl shadow-sm mb-4 hover:shadow-md transition-shadow duration-200">
-           <div class="flex items-center gap-4 p-4">
-             <img [src]="item.image" [alt]="item.name" class="w-24 h-24 object-cover rounded-lg">
-             <div class="flex-1">
-               <h3 class="font-medium text-lg">{{item.name}}</h3>
-               <p class="text-gray-500 font-medium mt-1">{{item.price | currency}}</p>
-               <div class="flex items-center gap-3 mt-3">
-                 <button (click)="decreaseQuantity(item)" class="w-8 h-8 flex items-center justify-center border-2 border-gray-200 rounded-full hover:border-black transition-colors">-</button>
-                 <span class="font-medium">{{item.quantity}}</span>
-                 <button (click)="increaseQuantity(item)" class="w-8 h-8 flex items-center justify-center border-2 border-gray-200 rounded-full hover:border-black transition-colors">+</button>
-               </div>
-             </div>
-             <button (click)="removeItem(item)" class="text-gray-400 hover:text-red-500 transition-colors p-2">
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-               </svg>
-             </button>
-           </div>
-         </div>
-       </div>
+          <div *ngFor="let item of cartItems"
+            class="bg-white rounded-xl shadow-sm mb-4 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-center gap-4 p-4">
+              <img [src]="item.image" [alt]="item.name" class="w-24 h-24 object-cover rounded-lg">
+              <div class="flex-1">
+                <h3 class="font-medium text-lg">{{item.name}}</h3>
+                <p class="text-gray-500 font-medium mt-1">{{item.price | currency}}</p>
+                <div class="flex items-center gap-3 mt-3">
+                  <button (click)="decreaseQuantity(item)"
+                    class="w-8 h-8 flex items-center justify-center border-2 border-gray-200 rounded-full hover:border-black transition-colors">-</button>
+                  <span class="font-medium">{{item.quantity}}</span>
+                  <button (click)="increaseQuantity(item)"
+                    class="w-8 h-8 flex items-center justify-center border-2 border-gray-200 rounded-full hover:border-black transition-colors">+</button>
+                </div>
+              </div>
+              <button (click)="removeItem(item)" class="text-gray-400 hover:text-red-500 transition-colors p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
 
-       <!-- Cart Footer -->
-       <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-         <div class="flex justify-between mb-4">
-           <span class="text-lg font-medium">Total:</span>
-           <span class="text-lg font-bold">{{cartTotal | currency}}</span>
-         </div>
-         <button (click)="checkout()" class="w-full px-6 py-4 bg-black text-white rounded-xl hover:bg-gray-800 active:scale-[0.98] transition-all duration-200 font-medium text-base shadow-lg shadow-black/30">
-           Proceed to Checkout
-         </button>
-         <button (click)="toggleCart()" class="w-full px-6 py-3 text-gray-600 hover:text-black mt-3 font-medium transition-colors">
-           Continue Shopping
-         </button>
-       </div>
-     </div>
-   </div>
+        <!-- Cart Footer -->
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+          <div class="flex justify-between mb-4">
+            <span class="text-lg font-medium">Total:</span>
+            <span class="text-lg font-bold">{{cartTotal | currency}}</span>
+          </div>
+          <div class="flex items-center justify-center flex-col text-center space-y-3">
+            <a routerLink="/checkout"
+              class="w-full px-6 py-4 bg-black text-white rounded-xl hover:bg-gray-800 active:scale-[0.98] transition-all duration-200 font-medium text-base shadow-lg shadow-black/30 hover:shadow-xl hover:shadow-black/40 transform hover:-translate-y-0.5">
+              Proceed to Checkout
+            </a>
+            <a routerLink="/cart"
+              class="w-full px-6 py-3 border-2 border-black text-black hover:bg-black hover:text-white rounded-xl font-medium text-sm transition-all duration-200 hover:shadow-md">
+              View Cart Page
+            </a>
+
+            <button (click)="toggleCart()"
+              class="w-full px-6 py-3 text-gray-600 hover:text-black text-sm font-medium transition-all duration-200 hover:bg-gray-100 rounded-xl border border-transparent hover:border-gray-200">
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Mobile Menu (Dropdown) -->
-  <div
-    *ngIf="menuOpen"
-    class="absolute top-full left-0 w-full bg-white shadow-lg z-50 md:hidden"
-  >
+  <div *ngIf="menuOpen" class="absolute top-full left-0 w-full bg-white shadow-lg z-50 md:hidden">
     <!-- Mobile Search Bar -->
     <div class="p-4 border-b">
       <div class="relative">
-        <input
-          type="text"
-          placeholder="Search the product here"
-          class="w-full h-10 py-2 px-4 border border-gray-300 outline-none rounded-md text-sm font-light"
-        />
+        <input type="text" placeholder="Search the product here"
+          class="w-full h-10 py-2 px-4 border border-gray-300 outline-none rounded-md text-sm font-light" />
         <span class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer">
           <img src="assets/icons/searchIcon.svg" class="w-5 h-5" alt="Search Icon">
         </span>
@@ -121,30 +130,8 @@
 
     <!-- Mobile Menu Items -->
     <ul class="py-4 px-4">
-      <li class="py-2">
-        <a routerLink="winter" class="text-black block hover:underline hover:font-bold">All Products</a>
-      </li>
-      <li class="py-2">
-        <a routerLink="/" class="text-black block hover:underline hover:font-bold">Home</a>
-      </li>
-      <li class="py-2">
-        <a routerLink="trending" class="text-black block hover:underline hover:font-bold">Trending</a>
-      </li>
-      <li class="py-2">
-        <a routerLink="running_shoes" class="text-black block hover:underline hover:font-bold">Running Shoes</a>
-      </li>
-      <li class="py-2">
-        <a routerLink="basketball_shoes" class="text-black block hover:underline hover:font-bold">Basketball Shoes</a>
-      </li>
-      <li class="py-2">
-        <a routerLink="casual_sneaker" class="text-black block hover:underline hover:font-bold">Casual Sneaker</a>
-      </li>
-      <li class="py-2">
-        <a routerLink="winter" class="text-black block hover:underline hover:font-bold">Winter</a>
-      </li>
-
-      <li class="py-2">
-        <a routerLink="winter" class="text-black block hover:underline hover:font-bold">Contact Us</a>
+      <li *ngFor="let link of navLinks" class="py-2">
+        <a [routerLink]="link.path" class="text-black block hover:underline hover:font-bold">{{link.label}}</a>
       </li>
     </ul>
   </div>

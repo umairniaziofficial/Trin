@@ -1,6 +1,7 @@
 import { NgIf, NgClass, NgFor, CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NAV_LINKS } from '../../constants/data';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent {
   cartItems: any[] = [];
   cartItemCount: number = 0;
   cartTotal: number = 0;
+  navLinks = NAV_LINKS;
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;

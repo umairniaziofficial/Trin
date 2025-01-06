@@ -1,10 +1,61 @@
-<div class="max-w-6xl mx-auto min-h-screen flex container">
-  <div class="w-1/2 pr-6 mt-20">
+<div class="max-w-6xl mx-auto min-h-screen flex flex-col lg:flex-row container">
+  <!-- Mobile Order Summary Toggle - Moved to top -->
+  <div class="lg:hidden border-b border-gray-200 pb-4 py-6 px-4">
+    <button (click)="isOrderSummaryOpen = !isOrderSummaryOpen" class="w-full flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="font-medium">Order Summary</span>
+        <svg [ngClass]="{'rotate-180': isOrderSummaryOpen}" class="w-4 h-4 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+      <div class="font-medium">Rs 8,591.00</div>
+    </button>
+
+    <!-- Mobile Order Summary Content -->
+    <div [ngClass]="{'hidden': !isOrderSummaryOpen}" class="pt-4">
+      <div class="flex flex-col gap-4">
+        <div class="flex justify-between items-start">
+          <div class="flex gap-4">
+            <img src="https://dummyimage.com/80x80.jpg" alt="" class="rounded-md w-16 lg:w-20 h-16 lg:h-20 object-cover">
+            <div class="flex flex-col">
+              <h4 class="font-medium text-sm">Product Name</h4>
+              <p class="text-gray-500 text-xs">Size: s</p>
+            </div>
+          </div>
+          <div>
+            <div class="font-normal text-sm">Price</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input type="text" [(ngModel)]="discountCode"
+            class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500"
+            placeholder="Discount code or gift card">
+          <button [disabled]="!discountCode" [ngClass]="{'bg-gray-200 text-zinc-800': !discountCode, 'bg-black text-white': discountCode}"
+            class="px-4 py-4 rounded-md font-semibold text-sm whitespace-nowrap">Apply</button>
+        </div>
+        <div class="flex justify-between items-center mt-1">
+          <div class="font-medium text-sm">Subtotal</div>
+          <div class="text-sm">Rs 100</div>
+        </div>
+        <div class="flex justify-between items-center mt-1">
+          <div class="font-medium text-sm">Shipping</div>
+          <div class="text-sm">Rs 100</div>
+        </div>
+        <div class="flex justify-between items-center mt-1">
+          <div class="text-xl font-semibold">Total</div>
+          <div class="text-xl font-semibold"><span class="text-xs font-normal text-gray-500">PKR</span> Rs<span class="pl-1">8,591.00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full lg:w-1/2 px-4 lg:pr-6 mt-8 lg:mt-20">
     <form action="" class="flex flex-col gap-8">
       <div>
         <div class="flex justify-between items-center mb-4">
           <h1 class="font-semibold text-xl">Contact</h1>
-          <a routerLink="/signin" class=" hover:text-gray-900 underline cursor-pointer text-sm transition-colors">Log
+          <a routerLink="/signin" class="hover:text-gray-900 underline cursor-pointer text-sm transition-colors">Log
             in</a>
         </div>
         <div class="flex flex-col gap-4">
@@ -19,7 +70,7 @@
       </div>
 
       <div class="flex flex-col gap-4">
-        <div class="flex justify-between items-center ">
+        <div class="flex justify-between items-center">
           <h1 class="font-semibold text-xl">Delivery</h1>
         </div>
         <div class="flex flex-col gap-4">
@@ -27,7 +78,7 @@
             class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500">
         </div>
         <div class="flex flex-col gap-4">
-          <div class="relative ">
+          <div class="relative">
             <label for="country" class="absolute text-xs text-gray-500 left-4 top-2 z-10">Country/Region</label>
             <div class="relative">
               <select id="country" name="country"
@@ -50,7 +101,7 @@
             </div>
           </div>
         </div>
-        <div class="flex gap-4">
+        <div class="flex flex-col md:flex-row gap-4">
           <input type="text" placeholder="First Name"
             class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500">
           <input type="text" placeholder="Last Name"
@@ -61,10 +112,10 @@
             class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500">
         </div>
         <div>
-          <input type="text" placeholder="partment, suite, etc. (optional)"
+          <input type="text" placeholder="Apartment, suite, etc. (optional)"
             class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500">
         </div>
-        <div class="flex gap-4">
+        <div class="flex flex-col md:flex-row gap-4">
           <input type="text" placeholder="City"
             class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500">
           <input type="text" placeholder="Postal Code"
@@ -79,7 +130,7 @@
           <label for="save" class="text-sm text-gray-600">Save this information for next time</label>
         </div>
         <div class="flex flex-col gap-4">
-          <h1 class="font-semibold text-base ">Shipping method</h1>
+          <h1 class="font-semibold text-base">Shipping method</h1>
           <div class="flex justify-between items-center border border-black rounded-md p-4 text-sm font-semibold">
             <div class="font-normal">FREE SHIPPING + FBR POS</div>
             <div>Rs 1.00</div>
@@ -89,7 +140,7 @@
           <h1 class="font-semibold text-xl">Payment</h1>
           <p class="text-sm text-gray-600">All transactions are secure and encrypted.</p>
         </div>
-        <div class="flex flex-col ">
+        <div class="flex flex-col">
           <!-- Credit/Debit Card Option -->
           <div class="overflow-hidden">
             <div
@@ -100,9 +151,8 @@
                 <span class="font-medium">Credit or Debit Card</span>
               </div>
               <div class="flex items-center gap-2">
-                <img src="assets/visa.svg" alt="Visa" class="h-6">
-                <img src="assets/mastercard.svg" alt="Mastercard" class="h-6">
-                <img src="assets/amex.svg" alt="American Express" class="h-6">
+                <img src="assets/icons/visa.svg" alt="Visa" class="h-6">
+                <img src="assets/icons/mastercard.svg" alt="Mastercard" class="h-6">
               </div>
             </div>
             <div *ngIf="selectedPayment === 'card'"
@@ -122,21 +172,16 @@
             </div>
           </div>
 
-
           <!-- COD Option -->
           <div class="overflow-hidden border-t border-gray-200">
             <div
-              class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors border rounded-b [&:has(input:checked)]:border-black "
+              class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors border rounded-b [&:has(input:checked)]:border-black"
               (click)="selectedPayment = 'cod'">
               <div class="flex items-center gap-3">
                 <input type="radio" name="payment" [checked]="selectedPayment === 'cod'" class="w-4 h-4 accent-black">
                 <span class="font-medium">Cash on Delivery (COD)</span>
               </div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
+             <img src="assets/icons/cod.svg" alt="COD" class="h-6">
             </div>
           </div>
         </div>
@@ -161,8 +206,8 @@
             </div>
             <div *ngIf="selectedBillingAddress === 'different'"
               class="px-4 py-2 bg-[#f4f4f4] border rounded flex flex-col gap-4">
-              <div class="grid grid-cols-2 gap-4 py-4">
-                <div class="relative col-span-2 ">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+                <div class="relative col-span-full">
                   <label for="country" class="absolute text-xs text-gray-500 left-4 top-2 z-10">Country/Region</label>
                   <div class="relative">
                     <select id="country" name="country"
@@ -185,44 +230,114 @@
                   </div>
                 </div>
                 <div class="flex flex-col gap-1">
-                  <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="First name">
+                  <input type="text"
+                    class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                    placeholder="First name">
                 </div>
                 <div class="flex flex-col gap-1">
-                  <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="Last name">
+                  <input type="text"
+                    class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                    placeholder="Last name">
                 </div>
               </div>
               <div class="flex flex-col gap-1">
-                <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="Address">
+                <input type="text"
+                  class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                  placeholder="Address">
               </div>
               <div class="flex flex-col gap-1">
-                <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="Apartment, suite, etc. (optional)">
+                <input type="text"
+                  class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                  placeholder="Apartment, suite, etc. (optional)">
               </div>
-              <div class="grid grid-cols-3 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="flex flex-col gap-1">
-                  <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="City">
+                  <input type="text"
+                    class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                    placeholder="City">
                 </div>
                 <div class="flex flex-col gap-1">
-                  <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="State">
+                  <input type="text"
+                    class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                    placeholder="State">
                 </div>
                 <div class="flex flex-col gap-1">
-                  <input type="text" class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2" placeholder="ZIP code">
+                  <input type="text"
+                    class="border text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500 rounded p-2"
+                    placeholder="ZIP code">
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <button class="bg-black text-white px-4 py-3 rounded-md font-semibold">Pay now</button>
+        <button class="bg-black text-white px-4 py-3 rounded-md font-semibold hidden lg:block">Pay now</button>
       </div>
     </form>
-    <div class="mt-20 border-t border-gray-200">
-      <div class="flex gap-4 justify-start py-4 text-xs text-black">
-        <a href="#" class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Refund policy</a>
-        <a href="#" class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Privacy policy</a>
-        <a href="#" class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Terms of service</a>
+    <div class="mt-4 border-t border-gray-200 hidden lg:block">
+      <div class="flex flex-wrap gap-4 justify-start py-4 text-xs text-black">
+        <a href="#"
+          class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Refund
+          policy</a>
+        <a href="#"
+          class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Privacy
+          policy</a>
+        <a href="#"
+          class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Terms of
+          service</a>
       </div>
     </div>
   </div>
-  <div class="w-1/2 bg-[#f8f8f8] px-8 py-6">
-    Hello
+  <div class="w-full md:w-1/2 md:bg-[#f8f8f8] bg-white p-4 lg:px-8 mt-6">
+    <div class="">
+      <div class="flex flex-col gap-4">
+        <h2 class="font-semibold text-xl">Order Summary</h2>
+        <div class="flex justify-between items-start">
+          <div class="flex gap-4">
+            <img src="https://dummyimage.com/80x80.jpg" alt="" class="rounded-md w-16 lg:w-20 h-16 lg:h-20 object-cover">
+            <div class="flex flex-col">
+              <h4 class="font-medium text-sm">Product Name</h4>
+              <p class="text-gray-500 text-xs">Size: s</p>
+            </div>
+          </div>
+          <div>
+            <div class="font-normal text-sm">Price</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input type="text" [(ngModel)]="discountCode"
+            class="w-full px-4 py-3 text-sm border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder:text-gray-500"
+            placeholder="Discount code or gift card">
+          <button [disabled]="!discountCode" [ngClass]="{'bg-gray-200 text-zinc-800': !discountCode, 'bg-black text-white': discountCode}"
+            class="px-4 py-4 rounded-md font-semibold text-sm whitespace-nowrap">Apply</button>
+        </div>
+        <div class="flex justify-between items-center mt-1">
+          <div class="font-medium text-sm">Subtotal</div>
+          <div class="text-sm">Rs 100</div>
+        </div>
+        <div class="flex justify-between items-center mt-1">
+          <div class="font-medium text-sm">Shipping</div>
+          <div class="text-sm">Rs 100</div>
+        </div>
+        <div class="flex justify-between items-center mt-1">
+          <div class="text-xl font-semibold">Total</div>
+          <div class="text-xl font-semibold"><span class="text-xs font-normal text-gray-500">PKR</span> Rs<span class="pl-1">8,591.00</span></div>
+        </div>
+        <button class="bg-black text-white px-4 py-3 rounded-md font-semibold block lg:hidden">Pay now</button>
+      </div>
+    </div>
+  </div>
+  <div class="ml-3 border-t border-gray-200 block md:hidden">
+    <div class="flex flex-wrap gap-4 justify-start py-4 text-xs text-black">
+      <a href="#"
+        class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Refund
+        policy</a>
+      <a href="#"
+        class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Privacy
+        policy</a>
+      <a href="#"
+        class="pb-0.5 border-black border-b hover:opacity-30 transition-opacity duration-150 ease-in-out">Terms of
+        service</a>
+    </div>
   </div>
 </div>
