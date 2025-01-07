@@ -14,6 +14,7 @@ import { SuccessPageComponent } from './success-page/success-page.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogLayoutComponent } from './layouts/blog-layout/blog-layout.component';
 import { BlogNotFoundComponent } from './blog-not-found/blog-not-found.component';
+import { BlogsPageComponent } from './blogs-page/blogs-page.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,7 @@ export const routes: Routes = [
     component: BlogLayoutComponent,
     children: [
       { path: '', component: BlogComponent },
+      { path: 'posts', component: BlogsPageComponent },
       { path: 'not-found', component: BlogNotFoundComponent },
       { path: '**', redirectTo: 'not-found' }
     ],
