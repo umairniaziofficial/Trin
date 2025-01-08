@@ -1,0 +1,61 @@
+<div class="coupons-container bg-white p-4 sm:p-6 rounded-xl shadow-sm">
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
+    <div>
+      <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Coupons & Discounts</h1>
+      <p class="text-sm sm:text-base text-gray-500 mt-0.5 sm:mt-1">Manage your promotional offers and discounts</p>
+    </div>
+    <button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors">
+      Add New Coupon
+    </button>
+  </div>
+
+  <!-- Coupons Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div *ngFor="let coupon of coupons"
+         class="border border-gray-200 rounded-lg p-3 sm:p-4 hover:shadow-md transition-shadow"
+         [class.opacity-75]="coupon.status === 'Expired'">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <span class="px-2 sm:px-2.5 py-0.5 sm:py-1 text-xs font-medium rounded"
+              [class.bg-green-100]="coupon.status === 'Active'"
+              [class.text-green-800]="coupon.status === 'Active'"
+              [class.bg-red-100]="coupon.status === 'Expired'"
+              [class.text-red-800]="coupon.status === 'Expired'"
+              [class.bg-yellow-100]="coupon.status === 'Scheduled'"
+              [class.text-yellow-800]="coupon.status === 'Scheduled'">
+          {{coupon.status}}
+        </span>
+        <div class="relative">
+          <button (click)="toggleDropdown(coupon)" class="text-gray-400 hover:text-gray-600">
+            <img src="assets/icons/more.svg" class="w-4 h-4 sm:w-5 sm:h-5" alt="More options"/>
+          </button>
+          <div *ngIf="coupon.showDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+            <button (click)="editCoupon(coupon)" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              Edit
+            </button>
+            <button (click)="duplicateCoupon(coupon)" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              Duplicate
+            </button>
+            <button [class.text-red-600]="coupon.status === 'Active'" [class.text-green-600]="coupon.status !== 'Active'"
+                    (click)="toggleCouponStatus(coupon)"
+                    class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">
+              {{coupon.status === 'Active' ? 'Deactivate' : 'Activate'}}
+            </button>
+            <button (click)="deleteCoupon(coupon)" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <h3 class="text-base sm:text-lg font-semibold text-gray-900">{{coupon.code}}</h3>
+      <p class="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1">{{coupon.description}}</p>
+      <div class="mt-3 sm:mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs sm:text-sm gap-2 sm:gap-0">
+        <span class="text-gray-600">
+          {{coupon.status === 'Expired' ? 'Expired: ' : coupon.status === 'Scheduled' ? 'Starts: ' : 'Valid until: '}}
+          {{coupon.date}}
+        </span>
+        <span class="font-medium text-indigo-600">{{coupon.discount}} OFF</span>
+      </div>
+    </div>
+  </div>
+</div>

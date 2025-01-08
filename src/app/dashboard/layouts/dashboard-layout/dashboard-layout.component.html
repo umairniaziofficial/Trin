@@ -1,0 +1,51 @@
+<div class="min-h-screen flex bg-gradient-to-br from-gray-50 to-gray-100 container">
+<!-- Sidebar -->
+<aside [class]="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+  class="fixed lg:sticky lg:translate-x-0 z-30 w-64 h-screen top-0 transition-transform duration-300 ease-in-out bg-white/95 backdrop-blur-sm border-r border-gray-200 shadow-lg">
+  <!-- Logo -->
+  <div
+    class="flex items-center justify-between h-16 px-4 border-b border-gray-200/80 bg-gradient-to-r from-white to-gray-50">
+    <span class="text-xl font-bold text-gray-800">TRIN Admin</span>
+    <button class="lg:hidden p-2 rounded-md hover:bg-gray-100/80 transition-colors" (click)="toggleSidebar()">
+      <img src="assets/icons/close.svg" class="h-5 w-5" />
+    </button>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="px-4 py-4 space-y-1.5">
+    @for (link of Dashboard_Links; track link.path) {
+    <a routerLink="{{link.path}}" routerLinkActive="bg-gradient-to-r from-indigo-50 to-indigo-100 text-indigo-700"
+      class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 text-gray-900 transition-all duration-200 ease-in-out">
+      <img src="assets/icons/{{link.icon}}.svg" class="h-5 w-5 mr-3" />
+      {{link.name}}
+    </a>
+    }
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<div class="flex-1 bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-sm">
+  <!-- Top Navigation -->
+  <header
+    class="h-16 flex items-center justify-between px-4 bg-white/90 backdrop-blur-sm border-b border-gray-200/80 shadow-sm">
+    <button class="lg:hidden p-2 rounded-md hover:bg-gray-100/80 transition-colors" (click)="toggleSidebar()">
+      <img src="assets/icons/menu.svg" class="h-5 w-5" />
+    </button>
+
+    <div class="ml-auto flex items-center space-x-4">
+      <button class="p-2 rounded-full hover:bg-gray-100/80 transition-all duration-200">
+        <img src="assets/icons/notifications.svg" class="h-5 w-5" />
+      </button>
+
+      <button class="p-2 rounded-full hover:bg-gray-100/80 transition-all duration-200">
+        <img src="assets/icons/settings.svg" class="h-5 w-5" />
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="p-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+</div>

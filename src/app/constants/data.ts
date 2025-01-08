@@ -86,11 +86,10 @@ export const CATEGORY_ITEM: CategoryModel[] = [
     categoryImageSrc: 'assets/images/categories/sneaker_shoe.jpg',
   },
   {
-    categoryName:'Training Shoes',
-    categoryDescription:'',
-    categoryImageSrc:'assets/images/categories/training_shoe.jpg'
-  }
-
+    categoryName: 'Training Shoes',
+    categoryDescription: '',
+    categoryImageSrc: 'assets/images/categories/training_shoe.jpg',
+  },
 ];
 
 export const PRODUCT_CARD_ITEM: Product_Card_Model[] = [
@@ -234,5 +233,58 @@ export const NAV_LINKS: { path: string; label: string }[] = [
   { path: '/casual-sneaker', label: 'Casual Sneaker' },
   { path: '/winter', label: 'Winter' },
   { path: '/blog', label: 'Blog' },
-  { path: '/contact-us', label: 'Contact Us' }
+  { path: '/contact-us', label: 'Contact Us' },
+];
+
+export const Dashboard_Links: { name: string; path: string; icon: string }[] = [
+  {
+    name: 'Overview',
+    path: 'overview',
+    icon: 'dashboard',
+  },
+  {
+    name: 'Notifications',
+    path: 'notifications',
+    icon: 'notifications',
+  },
+  {
+    name: 'Orders',
+    path: 'orders',
+    icon: 'orders',
+  },
+  {
+    name: 'Products',
+    path: 'products',
+    icon: 'products',
+  },
+  {
+    name: 'Shipping',
+    path: 'shipping',
+    icon: 'shipping',
+  },
+  {
+    name: 'Transactions',
+    path: 'transactions',
+    icon: 'transactions',
+  },
+  {
+    name: 'Blog Posts',
+    path: 'blog-posts',
+    icon: 'blog',
+  },
+  {
+    name: 'Comments',
+    path: 'comments',
+    icon: 'comments',
+  },
+  {
+    name: 'Coupons',
+    path: 'coupons',
+    icon: 'discount',
+  },
+  {
+    name: 'Customers',
+    path: 'customers',
+    icon: 'customers',
+  },
 ];
