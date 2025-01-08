@@ -5,7 +5,6 @@ import {
   Product_Model,
   TestimonialModel,
   Trending_Model,
-  TrustBadgeModel,
 } from '../models/index.type';
 
 export const BANNER_ITEMS: BannerModel[] = [

@@ -1,50 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { ForgotComponent } from './auth/forgot/forgot.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { HeaderLayoutComponent } from './layouts/header-layout/header-layout.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { SuccessPageComponent } from './success-page/success-page.component';
-import { BlogComponent } from './blog/blog.component';
-import { BlogLayoutComponent } from './layouts/blog-layout/blog-layout.component';
-import { BlogNotFoundComponent } from './blog-not-found/blog-not-found.component';
-import { BlogsPageComponent } from './blogs-page/blogs-page.component';
-import { DashboardLoginComponent } from './dashboard/auth/dashboard-login/dashboard-login.component';
-import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
-import { TermsOfServiceComponent } from './pages/terms-of-service/terms-of-service.component';
-import { DashboardLayoutComponent } from './dashboard/layouts/dashboard-layout/dashboard-layout.component';
-import { OverviewComponent } from './dashboard/overview/overview.component';
-import { NotificationsComponent } from './dashboard/notifications/notifications.component';
-import { ShippingComponent } from './dashboard/shipping/shipping.component';
-import { ProductsComponent } from './dashboard/products/products.component';
-import { OrdersComponent } from './dashboard/orders/orders.component';
-import { CustomersComponent } from './dashboard/customers/customers.component';
-import { TransactionsComponent } from './dashboard/transactions/transactions.component';
-import { BlogPostsComponent } from './dashboard/blog-posts/blog-posts.component';
-import { CommentsComponent } from './dashboard/comments/comments.component';
-import { CouponsDiscountsComponent } from './dashboard/coupons-discounts/coupons-discounts.component';
-import { AddProductComponent } from './dashboard/actions/add-product/add-product.component';
-import { AddOrderComponent } from './dashboard/actions/add-order/add-order.component';
-import { AddShippingComponent } from './dashboard/actions/add-shipping/add-shipping.component';
-import { AddBlogPostComponent } from './dashboard/actions/add-blog-post/add-blog-post.component';
-import { AddTransactionComponent } from './dashboard/actions/add-transaction/add-transaction.component';
-import { AddCommentsComponent } from './dashboard/actions/add-comments/add-comments.component';
-import { AddCouponsComponent } from './dashboard/actions/add-coupons/add-coupons.component';
-import { AddCustomerComponent } from './dashboard/actions/add-customer/add-customer.component';
-import { EditProductComponent } from './dashboard/actions/edit-product/edit-product.component';
-import { EditOrderComponent } from './dashboard/actions/edit-order/edit-order.component';
-import { EditShippingComponent } from './dashboard/actions/edit-shipping/edit-shipping.component';
-import { EditBlogPostComponent } from './dashboard/actions/edit-blog-post/edit-blog-post.component';
-import { EditTransactionComponent } from './dashboard/actions/edit-transaction/edit-transaction.component';
-import { EditCommentsComponent } from './dashboard/actions/edit-comments/edit-comments.component';
-import { EditCouponsComponent } from './dashboard/actions/edit-coupons/edit-coupons.component';
-import { EditCustomerComponent } from './dashboard/actions/edit-customer/edit-customer.component';
+import { AuthLayoutComponent, BlogLayoutComponent, DefaultLayoutComponent, HeaderLayoutComponent } from './layouts';
+import { BlogComponent, BlogNotFoundComponent, BlogsPageComponent, CheckoutComponent, ContactUsComponent, HomeComponent, NotFoundComponent, PrivacyPolicyComponent, ShoppingCartComponent, SuccessPageComponent, TermsOfServiceComponent } from './pages';
+import { ForgotComponent, SigninComponent, SignupComponent } from './auth';
+import { AddBlogPostComponent, AddCommentsComponent, AddCouponsComponent, AddCustomerComponent, AddOrderComponent, AddProductComponent, AddShippingComponent, AddTransactionComponent, BlogPostsComponent, CommentsComponent, CouponsDiscountsComponent, CustomersComponent, DashboardLayoutComponent, DashboardLoginComponent, EditBlogPostComponent, EditCommentsComponent, EditCouponsComponent, EditCustomerComponent, EditOrderComponent, EditProductComponent, EditShippingComponent, EditTransactionComponent, NotificationsComponent, OrdersComponent, OverviewComponent, ProductsComponent, ShippingComponent, TransactionsComponent } from './pages/dashboard';
+
 
 export const routes: Routes = [
   {

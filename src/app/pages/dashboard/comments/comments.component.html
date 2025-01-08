@@ -1,0 +1,116 @@
+<div class="min-h-screen bg-gray-50/50 p-2 sm:p-4 lg:p-8">
+  <!-- Main Container -->
+  <div class="w-full max-w-7xl mx-auto space-y-3 sm:space-y-4 lg:space-y-6">
+    <!-- Header Section -->
+    <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+      <div class="min-w-0">
+        <h1 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 truncate">Comments</h1>
+        <p class="text-xs sm:text-sm text-gray-500 mt-0.5 truncate">Manage user comments and feedback</p>
+      </div>
+    </header>
+
+    <!-- Main Content Card -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <!-- Search and Filters Bar -->
+      <div class="p-2 sm:p-4 lg:p-6 border-b border-gray-200">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <!-- Search Bar -->
+          <div class="relative flex-1 min-w-0">
+            <input
+              type="text"
+              placeholder="Search comments..."
+              class="w-full pl-8 sm:pl-10 pr-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
+            >
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-2 sm:left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-2">
+            <button class="flex-1 sm:flex-none inline-flex items-center justify-center px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+              </svg>
+              <span class="hidden xs:inline">Filter</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">User</th>
+              <th class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comment</th>
+              <th class="hidden sm:table-cell px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Post</th>
+              <th class="hidden lg:table-cell px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Date</th>
+              <th class="hidden sm:table-cell px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Status</th>
+              <th class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr *ngFor="let comment of comments" class="hover:bg-gray-50/50 transition-colors">
+              <td class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3">
+                <div class="flex items-center min-w-0">
+                  <span class="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 text-xs font-medium flex-shrink-0">
+                    {{comment.userName.charAt(0) || 'U'}}
+                  </span>
+                  <span class="ml-2 text-xs sm:text-sm text-gray-900 truncate">{{comment.userName}}</span>
+                </div>
+              </td>
+              <td class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3">
+                <p class="text-xs sm:text-sm text-gray-500 line-clamp-2">{{comment.content}}</p>
+              </td>
+              <td class="hidden sm:table-cell px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm text-gray-500 truncate">{{comment.postTitle}}</td>
+              <td class="hidden lg:table-cell px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm text-gray-500 whitespace-nowrap">{{comment.date}}</td>
+              <td class="hidden sm:table-cell px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-right whitespace-nowrap">
+                <span class="inline-flex items-center px-1.5 sm:px-2.5 py-0.5 rounded-full text-xs font-medium"
+                      [class.bg-green-100]="comment.status === 'Approved'"
+                      [class.text-green-800]="comment.status === 'Approved'"
+                      [class.bg-yellow-100]="comment.status === 'Pending'"
+                      [class.text-yellow-800]="comment.status === 'Pending'"
+                      [class.bg-red-100]="comment.status === 'Rejected'"
+                      [class.text-red-800]="comment.status === 'Rejected'">
+                  {{comment.status}}
+                </span>
+              </td>
+              <td class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-right whitespace-nowrap">
+                <div class="flex justify-end gap-1 sm:gap-2">
+                  <button class="inline-flex items-center justify-center px-1.5 sm:px-2 py-1 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="hidden sm:inline ml-1.5">Approve</span>
+                  </button>
+                  <button class="inline-flex items-center justify-center px-1.5 sm:px-2 py-1 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span class="hidden sm:inline ml-1.5">Reject</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <p class="text-xs sm:text-sm text-gray-500">Showing 1 to 10 of 50 entries</p>
+          <div class="flex gap-1 sm:gap-2">
+            <button class="flex-1 sm:flex-none inline-flex items-center justify-center px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-50 disabled:hover:bg-white transition-all">
+              Previous
+            </button>
+            <button class="flex-1 sm:flex-none inline-flex items-center justify-center px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-lg hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

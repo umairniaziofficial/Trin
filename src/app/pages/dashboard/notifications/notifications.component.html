@@ -21,7 +21,7 @@
 
       <div class="space-y-3">
         <div *ngFor="let notification of group.notifications"
-          class="flex gap-4 p-4 rounded-lg transition-all"
+          class="flex gap-4 p-4 rounded-lg transition-all border border-gray-200"
           [class.bg-indigo-50]="notification.isUnread"
           [class.hover:bg-gray-50]="!notification.isUnread">
 

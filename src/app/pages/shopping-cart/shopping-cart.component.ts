@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CartItemComponent } from "../components/shared/cart-item/cart-item.component";
-import { CartOrderSummaryComponent } from "../components/shared/cart-order-summary/cart-order-summary.component";
+import { CartItemComponent, CartOrderSummaryComponent } from '../../components';
 
 @Component({
   selector: 'app-shopping-cart',

@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  MainBannerSectionComponent,
-  FeatureProductCardsSectionComponent,
-  FeaturedProductsSectionComponent,
-  LatestProductsSectionComponent,
-  TrendingSectionComponent,
-  VideoBannerComponent,
-  CategoriesSectionComponent,
-  TestimonialComponent,
-  FeatureBannerSectionComponent,
-} from '../sections';
+import { CategoriesSectionComponent, FeatureBannerSectionComponent, FeaturedProductsSectionComponent, FeatureProductCardsSectionComponent, LatestProductsSectionComponent, MainBannerSectionComponent, TestimonialComponent, TrendingSectionComponent, VideoBannerComponent } from '../../sections';
+
 
 @Component({
   selector: 'app-home',

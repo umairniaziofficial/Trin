@@ -1,6 +1,6 @@
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { Dashboard_Links } from './../../../constants/data';
 import { Component } from '@angular/core';
+import { Dashboard_Links } from '../../../../constants/data';
 
 @Component({
   selector: 'app-dashboard-layout',
