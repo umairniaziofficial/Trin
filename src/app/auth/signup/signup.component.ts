@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 interface SignupForm {
   firstName: string;
@@ -18,7 +20,7 @@ interface SignupForm {
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   currentStep = 1;
 
   formData: SignupForm = {
@@ -29,6 +31,18 @@ export class SignupComponent {
     confirmPassword: '',
     terms: false,
   };
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    // Redirect if user is already logged in
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/']);
+    }
+  }
 
   nextStep(): void {
     if (this.currentStep < 3) {
@@ -44,7 +58,27 @@ export class SignupComponent {
 
   onSubmit(): void {
     if (this.validateForm()) {
-      console.log('Form submitted:', this.formData);
+      const signupData = {
+        firstName: this.formData.firstName,
+        lastName: this.formData.lastName,
+        email: this.formData.email,
+        password: this.formData.password
+      };
+
+      this.authService.signup(signupData).subscribe({
+        next: (response) => {
+          console.log('Signup successful:', response);
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.error('Signup failed:', error);
+          if (error.status === 409) {
+            alert('This email is already registered');
+          } else {
+            alert('Signup failed. Please try again.');
+          }
+        }
+      });
     }
   }
 

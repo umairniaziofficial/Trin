@@ -3,6 +3,8 @@ import { AuthLayoutComponent, BlogLayoutComponent, DefaultLayoutComponent, Heade
 import { BlogComponent, BlogNotFoundComponent, BlogsPageComponent, CheckoutComponent, ContactUsComponent, HomeComponent, NotFoundComponent, PrivacyPolicyComponent, ShoppingCartComponent, SuccessPageComponent, TermsOfServiceComponent } from './pages';
 import { ForgotComponent, SigninComponent, SignupComponent } from './auth';
 import { AddBlogPostComponent, AddCommentsComponent, AddCouponsComponent, AddCustomerComponent, AddOrderComponent, AddProductComponent, AddShippingComponent, AddTransactionComponent, BlogPostsComponent, CommentsComponent, CouponsDiscountsComponent, CustomersComponent, DashboardLayoutComponent, DashboardLoginComponent, EditBlogPostComponent, EditCommentsComponent, EditCouponsComponent, EditCustomerComponent, EditOrderComponent, EditProductComponent, EditShippingComponent, EditTransactionComponent, NotificationsComponent, OrdersComponent, OverviewComponent, ProductsComponent, ShippingComponent, TransactionsComponent } from './pages/dashboard';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -19,12 +21,12 @@ export const routes: Routes = [
     ],
   },
   {
-    path: 'auth',
+    path: '',
     component: AuthLayoutComponent,
     children: [
-      { path: 'signup', component: SignupComponent, title: 'TRIN | Sign Up' },
-      { path: 'signin', component: SigninComponent, title: 'TRIN | Sign In' },
-      { path: 'forgot', component: ForgotComponent, title: 'TRIN | Forgot Password' },
+      { path: 'signup', component: SignupComponent, title: 'TRIN | Sign Up', canActivate: [AuthGuard] },
+      { path: 'signin', component: SigninComponent, title: 'TRIN | Sign In', canActivate: [AuthGuard] },
+      { path: 'forgot-password', component: ForgotComponent, title: 'TRIN | Forgot Password' },
     ],
   },
   {
@@ -40,6 +42,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardLayoutComponent,
+    canActivate: [AdminGuard],
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent, title: 'TRIN Admin | Overview' },
@@ -83,6 +86,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
         path: 'login',
         component: DashboardLoginComponent,

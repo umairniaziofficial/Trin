@@ -26,8 +26,31 @@
 
   <!-- Icons Section -->
   <div class="flex items-center gap-4 md:gap-5">
-    <a routerLink="/signin"> <img src="assets/icons/accountIcon.svg"
-        class="w-5 h-5 cursor-pointer hover:scale-110 transition-transform" alt="Account Icon"></a>
+    <div class="relative">
+      <button (click)="toggleUserMenu()" class="hover:scale-110 transition-transform">
+        <img src="assets/icons/accountIcon.svg" class="w-5 h-5 cursor-pointer" alt="Account Icon">
+      </button>
+
+      <!-- User Menu Dropdown -->
+      <div *ngIf="isUserMenuOpen"
+           class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border">
+        <div *ngIf="currentUser; else loginLink">
+          <div class="px-4 py-2 border-b">
+            <p class="text-sm font-medium text-gray-900">{{currentUser.name}}</p>
+            <p class="text-sm text-gray-500">{{currentUser.email}}</p>
+          </div>
+          <a routerLink="/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orders</a>
+          <button (click)="logout()"
+                  class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+            Logout
+          </button>
+        </div>
+        <ng-template #loginLink>
+          <a routerLink="/signin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign In</a>
+          <a routerLink="/signup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign Up</a>
+        </ng-template>
+      </div>
+    </div>
     <button (click)="toggleCart()" class="relative hover:scale-110 transition-transform">
       <img src="assets/icons/cartIcon.svg" class="w-5 h-5 cursor-pointer" alt="Cart Icon">
       <span *ngIf="cartItemCount > 0"

@@ -37,9 +37,36 @@
         <img src="assets/icons/notifications.svg" class="h-5 w-5" />
       </button>
 
-      <button class="p-2 rounded-full hover:bg-gray-100/80 transition-all duration-200">
-        <img src="assets/icons/settings.svg" class="h-5 w-5" />
-      </button>
+      <!-- User Menu -->
+      <div class="relative">
+        <button
+          (click)="toggleUserMenu()"
+          class="p-2 rounded-full hover:bg-gray-100/80 transition-all duration-200"
+          [class.bg-gray-100]="userMenuOpen">
+          <img src="assets/icons/settings.svg" class="h-5 w-5" />
+        </button>
+
+        <!-- Dropdown Menu -->
+        @if (userMenuOpen) {
+        <div class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="py-1">
+            <!-- User Info -->
+            <div class="px-4 py-2 text-sm text-gray-700 border-b border-gray-200">
+              <div class="font-medium">Signed in as</div>
+              <div class="truncate">{{adminUser?.email}}</div>
+            </div>
+
+            <!-- Menu Items -->
+
+            <button
+              (click)="logout()"
+              class="w-full text-left px-4 py-2 text-sm text-red-600 bg-white hover:bg-red-50 z-50">
+              Sign out
+            </button>
+          </div>
+        </div>
+        }
+      </div>
     </div>
   </header>
 

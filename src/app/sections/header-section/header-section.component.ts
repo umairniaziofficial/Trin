@@ -2,6 +2,7 @@ import { NgIf, NgClass, NgFor, CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NAV_LINKS } from '../../constants/data';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,14 @@ export class HeaderComponent {
   cartItemCount: number = 0;
   cartTotal: number = 0;
   navLinks = NAV_LINKS;
+  isUserMenuOpen: boolean = false;
+  currentUser: any = null;
+
+  constructor(private authService: AuthService) {
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+    });
+  }
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
@@ -54,5 +63,14 @@ export class HeaderComponent {
   checkout(): void {
     // TODO: Implement checkout logic
     console.log('Checkout clicked');
+  }
+
+  toggleUserMenu(): void {
+    this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.isUserMenuOpen = false;
   }
 }
